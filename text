@@ -1,0 +1,12 @@
+[22:34:22] 📦 Processed dependencies!
+
+cat: /mount/admin/install_path: No such file or directory
+
+Usage: streamlit run [OPTIONS] TARGET [ARGS]...
+
+Try 'streamlit run --help' for help.
+
+
+Error: Streamlit requires raw Python (.py) files, but the provided file has no extension.
+
+For more information, please see https://docs.streamlit.io
