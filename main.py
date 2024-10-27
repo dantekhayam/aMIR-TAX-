@@ -42,14 +42,22 @@ class LoanCalculator:
 
 # Visualization helpers
 def plot_apr_comparison(apr, loan_id):
-    apr_values = [apr, 30, 50, 100]  # Example APR values for comparison
-    labels = [loan_id, "Competitor A", "Competitor B", "Industry Average"]
+    # Convert APR to float to ensure compatibility
+    apr_values = [float(apr), 30.0, 50.0, 100.0]  # Ensure all elements are floats
+    labels = [str(loan_id), "Competitor A", "Competitor B", "Industry Average"]  # Ensure labels are strings
+    
     fig, ax = plt.subplots()
     bars = ax.barh(labels, apr_values)
+    
+    # Add axis labels and title
     ax.set_xlabel('APR (%)')
     ax.set_title('APR Comparison')
+    
+    # Annotate each bar with its value
     for bar in bars:
         ax.text(bar.get_width() + 1, bar.get_y() + bar.get_height() / 2, f'{bar.get_width():.2f}%', va='center')
+    
+    # Render the plot in Streamlit
     st.pyplot(fig)
 
 def plot_repayment_projection(calculator, duration):
